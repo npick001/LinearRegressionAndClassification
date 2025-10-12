@@ -1,12 +1,42 @@
 import numpy as np
-import sklearn as sk
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
+# data loading
 data_location = 'dataset/salary/Salary_dataset.csv'
-output_dir = 'results/Task1/'
+data = pd.read_csv(data_location)
+X_train = data[['YearsExperience']].values  # Features (2D array for sklearn)
+y_train = data['Salary'].values  # Target variable
 
-# read in the data - skip the first column (index) and use the correct column structure
-data = np.genfromtxt(data_location, delimiter=",", names=True, usecols=(1, 2))
+# model creation, fitting, and prediction
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_train)
 
-for row in data:
-    print(row)
+# calculate performance metrics
+r2 = r2_score(y_train, y_pred)
+mse = mean_squared_error(y_train, y_pred)
+rmse = np.sqrt(mse) # root mean squared error
+mae = mean_absolute_error(y_train, y_pred)
 
+plt.figure(figsize=(10, 6))
+
+# plot the data points and regression line
+plt.scatter(X_train, y_train, alpha=0.6, color='blue', label='Data Points', s=50)
+plt.plot(X_train, y_pred, color='red', linewidth=2, label='Linear Regression Line')
+plt.xlabel('Years of Experience', fontsize=12)
+plt.ylabel('Salary ($)', fontsize=12)
+plt.title('Salary vs Years of Experience', fontsize=14)
+plt.legend(fontsize=11)
+plt.grid(True, alpha=0.3)
+
+# add performance metrics to plot
+plt.text(0.70, 0.05, f'R2 Score: {r2:.4f}', fontsize=12, transform=plt.gca().transAxes, verticalalignment='top')
+plt.text(0.70, 0.10, f'MSE: {mse:.4f}', fontsize=12, transform=plt.gca().transAxes, verticalalignment='top')
+plt.text(0.70, 0.15, f'RMSE: {rmse:.4f}', fontsize=12, transform=plt.gca().transAxes, verticalalignment='top')
+plt.text(0.70, 0.20, f'MAE: {mae:.4f}', fontsize=12, transform=plt.gca().transAxes, verticalalignment='top')
+
+plt.tight_layout()
+plt.show()

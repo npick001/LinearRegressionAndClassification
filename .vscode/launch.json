@@ -10,18 +10,18 @@
             "cwd": "${workspaceFolder}"
         },
         {
-            "name": "Task 2: Red Wine Quality",
+            "name": "Task 2: Linear Regression",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/src/red_wine_quality.py",
+            "program": "${workspaceFolder}/src/linear_regression.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}"
         },
         {
-            "name": "Task 3: Linear Regression",
+            "name": "Task 3: Red Wine Quality",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/src/linear_regression.py",
+            "program": "${workspaceFolder}/src/red_wine_quality.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}"
         },
