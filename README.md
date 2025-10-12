@@ -1,4 +1,4 @@
-# Machine Learning Project 1
+# Machine Learning (MSIM 607) Project 1
 
 A collection of machine learning implementations using Python and scikit-learn, focusing on linear regression and classification tasks across multiple datasets.
 
@@ -18,8 +18,7 @@ Project1/
 │   │   └── test.csv
 │   └── wine_quality/
 │       └── winequality-red.csv
-├── results/
-│   └── Task1/                 # Generated plots and outputs
+├── results/ 
 ├── .vscode/
 │   └── launch.json            # VS Code/Cursor debug configurations
 └── requirements.txt
@@ -104,7 +103,7 @@ python src/red_wine_quality.py
 
 **Expected Performance**:
 - R² Score: > 0.8 (Good fit)
-- RMSE: < $5,000 (Reasonable prediction error)
+- RMSE: < $6,000 (Reasonable prediction error)
 
 ### 2. Linear Regression (`linear_regression.py`)
 - **Algorithm**: Linear Regression (scikit-learn)
@@ -141,31 +140,15 @@ matplotlib>=3.4.0
 scikit-learn>=1.0.0
 ```
 
-## 📝 Results
-
-Generated plots and analysis results are saved in the `results/` directory:
-- `results/Task1/salary_linear_regression.png` - Salary prediction visualization
-
 ## 🔍 Data Description
 
 Detailed data descriptions are available in:
 - `dataset/data description.docx` - Comprehensive dataset documentation
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📄 License
 
 This project is part of a machine learning course assignment.
-
-## 📞 Contact
-
-For questions about this project, please open an issue in the repository.
 
 ---
 
