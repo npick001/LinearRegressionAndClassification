@@ -7,8 +7,8 @@ from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 # data loading
 data_location = 'dataset/salary/Salary_dataset.csv'
 data = pd.read_csv(data_location)
-X_train = data[['YearsExperience']].values  # Features (2D array for sklearn)
-y_train = data['Salary'].values  # Target variable
+X_train = data[['YearsExperience']].values
+y_train = data['Salary'].values
 
 # model creation, fitting, and prediction
 model = LinearRegression()
@@ -38,5 +38,6 @@ plt.text(0.70, 0.10, f'MSE: {mse:.4f}', fontsize=12, transform=plt.gca().transAx
 plt.text(0.70, 0.15, f'RMSE: {rmse:.4f}', fontsize=12, transform=plt.gca().transAxes, verticalalignment='top')
 plt.text(0.70, 0.20, f'MAE: {mae:.4f}', fontsize=12, transform=plt.gca().transAxes, verticalalignment='top')
 
+plt.savefig('results/salary_analysis_plot.png')
 plt.tight_layout()
 plt.show()

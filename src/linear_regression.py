@@ -40,5 +40,6 @@ plt.text(0.70, 0.10, f'MSE: {mse:.4f}', fontsize=12, transform=plt.gca().transAx
 plt.text(0.70, 0.15, f'RMSE: {rmse:.4f}', fontsize=12, transform=plt.gca().transAxes, verticalalignment='top')
 plt.text(0.70, 0.20, f'MAE: {mae:.4f}', fontsize=12, transform=plt.gca().transAxes, verticalalignment='top')
 
+plt.savefig('results/linear_regression_analysis_plot.png')
 plt.tight_layout()
 plt.show()
