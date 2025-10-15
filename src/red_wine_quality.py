@@ -12,21 +12,18 @@ import os
 os.makedirs('results', exist_ok=True)
 output_file = open('results/wine_quality_output.txt', 'w', encoding='utf-8')
 sys.stdout = output_file
-
-# longer line width is needed for viewing the data better
 np.set_printoptions(linewidth=200, suppress=True, precision=6)
 
 # data loading
 data_location = 'dataset/wine_quality/winequality-red.csv'
 data = pl.read_csv(data_location)
-
+x_train = data.select(pl.exclude('quality'))
+y_train = data['quality']
 
 print("---------------------------------------------------------------")
 print("Task A: 3-fold cross validation for linear regression")
 print("---------------------------------------------------------------")
 linear_model = LinearRegression()
-x_train = data.select(pl.exclude('quality'))
-y_train = data['quality']
 cross_validation_score = cross_val_score(linear_model, x_train, y_train, cv=3, error_score='raise')
 print("Linear Regression cross-validation scores:", cross_validation_score)
 

@@ -1,0 +1,119 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{url}  % For URLs in bibliography
+\usepackage{etoolbox} % For \AtEndEnvironment
+\usepackage[cache=false]{minted} % For syntax highlighting
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% Configure minted for better styling
+\setminted{
+    bgcolor=lightgray!10,
+    fontsize=\footnotesize,
+    xleftmargin=20pt,
+    frame=single,
+    framesep=3pt,
+    breaklines=true,
+    breakanywhere=true,
+    tabsize=4
+}
+
+% Automatically remove indentation after minted blocks
+\AtEndEnvironment{minted}{\noindent\ignorespaces}
+
+\setlength{\headheight}{15pt} % header spacing
+\addtolength{\topmargin}{-3pt} % adjust top margin for header
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TEMPLATE VARIABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Course Information
+\newcommand{\coursecode}{MSIM607}
+\newcommand{\coursename}{Machine Learning 1}
+\newcommand{\semester}{Fall 2025}
+
+% Assignment Information  
+\newcommand{\assignmenttype}{Project}
+\newcommand{\assignmentnumber}{1}
+\newcommand{\assignmenttitle}{Machine Learning Regression Analysis}
+
+% Student Information
+\newcommand{\studentname}{Nicholas Pickering}
+\newcommand{\submissiondate}{October 25, 2025}
+
+% Optional: Professor and Institution (uncomment if needed)
+\newcommand{\professorname}{Dr.\ Li}
+\newcommand{\institution}{Old Dominion University}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TEMPLATE SETUP - DO NOT EDIT BELOW THIS LINE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Configure headers and footers
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\fancyhead[L]{\coursecode{} -- \coursename{}}
+\fancyhead[R]{\assignmenttype{} \assignmentnumber{} Report}
+\fancyfoot[L]{\semester{}}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\studentname{}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\title{\assignmenttype{} \assignmentnumber{} Report\\[0.5em]
+       \large \assignmenttitle{}}
+\author{\studentname{}\\[0.3em]
+        \normalsize \coursecode{} -- \coursename{}\\
+        \normalsize \semester{}}
+\date{\submissiondate{}}
+
+% Start the document
+\begin{document}
+
+% Title page with no headers/footers
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+    {\LARGE \textbf{\assignmenttype{} \assignmentnumber{} Report}}\\[0.8em]
+    {\large \assignmenttitle{}}\\[2em]
+    
+    {\Large \studentname{}}\\[0.5em]
+    {\normalsize \coursecode{}---\coursename{}}\\
+    {\normalsize \semester{}}\\[1em]
+    
+    {\normalsize Professor: \professorname{}}\\
+    {\normalsize \institution{}}\\[1.5em]
+    
+    {\large \submissiondate{}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+% Start using headers/footers and Roman numerals for ToC
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+% Switch to Arabic numerals for main content
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{subsections/introduction.tex}
+\input{subsections/salary.tex}
+\input{subsections/linear_regression.tex}
+\input{subsections/red_wine_quality.tex}
+
+\newpage
+
+% Bibliography using BibTeX
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

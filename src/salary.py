@@ -1,14 +1,14 @@
 import numpy as np
-import pandas as pd
+import polars as pl
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
 # data loading
 data_location = 'dataset/salary/Salary_dataset.csv'
-data = pd.read_csv(data_location)
-X_train = data[['YearsExperience']].values
-y_train = data['Salary'].values
+data = pl.read_csv(data_location)
+X_train = data[['YearsExperience']]
+y_train = data['Salary']
 
 # model creation, fitting, and prediction
 model = LinearRegression()

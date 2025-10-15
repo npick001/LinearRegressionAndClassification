@@ -1,0 +1,17 @@
+=== Linear Regression Performance Analysis ===
+Training Set Performance:
+  R² Score: 0.9907
+  MSE: 7.8888
+  RMSE: 2.8087
+  MAE: 2.2307
+
+Test Set Performance:
+  R² Score: 0.9888
+  MSE: 9.4349
+  RMSE: 3.0716
+  MAE: 2.4158
+
+Generalization Analysis:
+  R² Difference (Train - Test): 0.0019
+  MSE Difference (Test - Train): 1.5461
+  Model generalizes well (low overfitting)
